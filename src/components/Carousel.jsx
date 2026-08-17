@@ -1,0 +1,93 @@
+"use client";
+
+import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { motion } from "framer-motion";
+import Button from "@/components/ui/Button";
+import { ArrowRight, BriefcaseMedical } from "lucide-react";
+import "swiper/css";
+
+const slides = [
+  {
+    img: "/images/img1.jpg",
+    title: "Your Growth, Our Commitment",
+    description:
+      "At OSOZMBS, we provide reliable and efficient medical billing services, ensuring clean claim submissions within 24 hours. We manage collections, address revenue cycle inconsistencies, and maintain a 99% accuracy rate to minimize denials and ensure prompt payments.",
+  },
+  {
+    img: "/images/img2.jpg",
+    title: "Your Success, Our Priority",
+    description:
+      "At OSOZMBS, we provide reliable and efficient medical billing services, ensuring clean claim submissions within 24 hours. We manage collections, address revenue cycle inconsistencies, and maintain a 99% accuracy rate to minimize denials and ensure prompt payments.",
+  },
+];
+
+export default function Carousel() {
+  return (
+    <section className="relative">
+      <Swiper
+        modules={[Autoplay]}
+        loop
+        speed={1200}
+        slidesPerView={1}
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
+      >
+        {slides.map((slide, index) => (
+          <SwiperSlide key={index}>
+            <div
+              className="relative flex min-h-[100vh] items-center bg-cover bg-center"
+              style={{
+                backgroundImage: `url(${slide.img})`,
+              }}
+            >
+              <div className="absolute inset-0 bg-slate-950/65" />
+              <div className="absolute inset-0 bg-emerald-100/10" />
+              <div className="relative z-10 mx-auto w-full max-w-7xl">
+                <motion.div
+                  initial={{ opacity: 0, y: 60 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="max-w-3xl flex justify-center flex-col rounded-2xl h-70 px-4 border-2 border-slate-400/50 bg-slate-500/40 text-shadow-lg"
+                >
+                  <span className="mb-2 inline-flex block w-fit rounded-2xl border-2 border-emerald-300/50 bg-emerald-700/40 px-4 py-1 text-md font-semibold text-emerald-400 ">
+                    Professional Medical Billing Services
+                  </span>
+
+                  <h1 className="my-2 text-2xl font-extrabold text-white sm:text-3xl lg:text-4xl text-shadow-lg">
+                    {slide.title}
+                  </h1>
+
+                  <p className="mb-5 text-sm text-emerald-50">
+                    {slide.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-4">
+                    <Button
+                      title="Get Started"
+                      href="/contact"
+                      icon={ArrowRight}
+                      variant="secondary"
+                      size="md"
+                    />
+
+                    <Button
+                      title="About Us"
+                      href="/about"
+                      icon={ArrowRight}
+                      variant="secondary"
+                      size="md"
+                    />
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </section>
+  );
+}
