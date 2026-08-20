@@ -45,8 +45,8 @@ export default function Footer() {
         <div className="absolute -right-40 bottom-0 h-72 w-72 sm:h-96 sm:w-96 rounded-full bg-cyan-500/10 blur-[100px] sm:blur-[140px] pointer-events-none" />
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* Main Grid */}
-          <div className="grid gap-8 sm:gap-10 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:gap-12">
+          {/* Main Grid Layout */}
+          <div className="grid gap-8 sm:gap-10 lg:grid-cols-[1.5fr_2fr_1fr] lg:gap-12">
             
             {/* Company Info */}
             <motion.div
@@ -64,53 +64,56 @@ export default function Footer() {
               </p>
             </motion.div>
 
-            {/* Quick Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-30px" }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <h3 className="mb-4 sm:mb-6 text-base sm:text-lg font-bold text-slate-800">
-                Quick Links
-              </h3>
-              <ul className="space-y-2 sm:space-y-2.5">
-                {quickLinks.map((link) => (
-                  <li key={link.title}>
-                    <Link
-                      href={link.href}
-                      className="group flex items-center gap-2.5 text-xs sm:text-sm text-slate-600 transition-all hover:text-emerald-600"
-                    >
-                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 transition-all group-hover:w-3.5" />
-                      {link.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+            {/* Quick Links & Services Container (Mobile par side-by-side side 2 columns) */}
+            <div className="grid grid-cols-2 gap-4 sm:gap-6">
+              {/* Quick Links */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
+                <h3 className="mb-4 sm:mb-6 text-base sm:text-lg font-bold text-slate-800">
+                  Quick Links
+                </h3>
+                <ul className="space-y-2 sm:space-y-2.5">
+                  {quickLinks.map((link) => (
+                    <li key={link.title}>
+                      <Link
+                        href={link.href}
+                        className="group flex items-center gap-2 text-xs sm:text-sm text-slate-600 transition-all hover:text-emerald-600"
+                      >
+                        <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-emerald-500 transition-all group-hover:w-3.5" />
+                        <span className="truncate">{link.title}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
 
-            {/* Services */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-30px" }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <h3 className="mb-4 sm:mb-6 text-base sm:text-lg font-bold text-slate-800">
-                Our Services
-              </h3>
-              <ul className="space-y-2 sm:space-y-2.5">
-                {services.map((service) => (
-                  <li
-                    key={service}
-                    className="group flex cursor-pointer items-center gap-2.5 text-xs sm:text-sm text-slate-600 transition-all hover:text-cyan-600"
-                  >
-                    <span className="h-1.5 w-1.5 rounded-full bg-cyan-500 transition-all group-hover:w-3.5" />
-                    {service}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+              {/* Our Services */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <h3 className="mb-4 sm:mb-6 text-base sm:text-lg font-bold text-slate-800">
+                  Our Services
+                </h3>
+                <ul className="space-y-2 sm:space-y-2.5">
+                  {services.map((service) => (
+                    <li
+                      key={service}
+                      className="group flex cursor-pointer items-center gap-2 text-xs sm:text-sm text-slate-600 transition-all hover:text-cyan-600"
+                    >
+                      <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-cyan-500 transition-all group-hover:w-3.5" />
+                      <span className="truncate">{service}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </div>
 
             {/* Contact */}
             <motion.div
