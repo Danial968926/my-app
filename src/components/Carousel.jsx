@@ -4,7 +4,7 @@ import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
-import { ArrowRight, BriefcaseMedical } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import "swiper/css";
 
 const slides = [
@@ -24,7 +24,7 @@ const slides = [
 
 export default function Carousel() {
   return (
-    <section className="relative">
+    <section className="relative w-full">
       <Swiper
         modules={[Autoplay]}
         loop
@@ -39,39 +39,47 @@ export default function Carousel() {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div
-              className="relative flex min-h-[100vh] items-center bg-cover bg-center"
+              className="relative flex min-h-[100vh] items-center bg-cover bg-center px-4 py-20 sm:px-6 lg:px-8"
               style={{
                 backgroundImage: `url(${slide.img})`,
               }}
             >
+              {/* Overlays */}
               <div className="absolute inset-0 bg-slate-950/65" />
               <div className="absolute inset-0 bg-emerald-100/10" />
+
+              {/* Slide Content */}
               <div className="relative z-10 mx-auto w-full max-w-7xl">
                 <motion.div
                   initial={{ opacity: 0, y: 60 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
-                  className="max-w-3xl flex justify-center flex-col rounded-2xl h-70 px-4 border-2 border-slate-400/50 bg-slate-500/40 text-shadow-lg"
+                  className="max-w-3xl flex flex-col justify-center rounded-2xl h-auto p-5 sm:p-8 border border-slate-400/30 bg-slate-900/50 backdrop-blur shadow-2xl"
                 >
-                  <span className="mb-2 inline-flex block w-fit rounded-2xl border-2 border-emerald-300/50 bg-emerald-700/40 px-4 py-1 text-md font-semibold text-emerald-400 ">
+                  {/* Badge */}
+                  <span className="mb-3 inline-flex w-fit items-center rounded-full border border-emerald-300/40 bg-emerald-800/50 px-3 py-1 text-xs sm:text-sm font-semibold text-emerald-300">
                     Professional Medical Billing Services
                   </span>
 
-                  <h1 className="my-2 text-2xl font-extrabold text-white sm:text-3xl lg:text-4xl text-shadow-lg">
+                  {/* Title */}
+                  <h1 className="mb-3 text-xl font-extrabold text-white sm:text-3xl lg:text-4xl leading-tight">
                     {slide.title}
                   </h1>
 
-                  <p className="mb-5 text-sm text-emerald-50">
+                  {/* Description */}
+                  <p className="mb-6 text-xs sm:text-sm md:text-base leading-relaxed text-emerald-50/90">
                     {slide.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-4">
+                  {/* Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                     <Button
                       title="Get Started"
                       href="/contact"
                       icon={ArrowRight}
                       variant="secondary"
                       size="md"
+                      className="w-full sm:w-auto text-center justify-center"
                     />
 
                     <Button
@@ -80,6 +88,7 @@ export default function Carousel() {
                       icon={ArrowRight}
                       variant="secondary"
                       size="md"
+                      className="w-full sm:w-auto text-center justify-center"
                     />
                   </div>
                 </motion.div>
