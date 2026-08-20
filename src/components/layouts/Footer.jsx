@@ -4,33 +4,20 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Logo from "../ui/Logo.jsx";
 import { ChevronUp } from "lucide-react";
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaThreads, } from "react-icons/fa6";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaThreads,
+} from "react-icons/fa6";
 
 const quickLinks = [
-  {
-    title: "Home",
-    href: "/",
-  },
-  {
-    title: "About Us",
-    href: "/about",
-  },
-  {
-    title: "Contact",
-    href: "/contact",
-  },
-  {
-    title: "Specialties",
-    href: "/specialties",
-  },
-  {
-    title: "Testimonials",
-    href: "/testimonials",
-  },
-  {
-    title: "News & Updates",
-    href: "/updates",
-  },
+  { title: "Home", href: "/" },
+  { title: "About Us", href: "/about" },
+  { title: "Contact", href: "/contact" },
+  { title: "Specialties", href: "/specialties" },
+  { title: "Testimonials", href: "/testimonials" },
+  { title: "News & Updates", href: "/updates" },
 ];
 
 const services = [
@@ -48,29 +35,28 @@ export default function Footer() {
       top: 0,
       behavior: "smooth",
     });
-  }
+  };
 
   return (
     <>
-      <footer className="relative py-10 overflow-hidden border-t border-slate-200 bg-slate-50">
-        <div className="absolute -left-40 top-20 h-96 w-96 rounded-full bg-emerald-500/10 blur-[140px]" />
-        <div className="absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-cyan-500/10 blur-[140px]" />
-        <div className="relative mx-auto max-w-7xl px-6">
-          <div className="grid gap-16 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
-            {/* Company */}
+      <footer className="relative py-10 sm:py-14 md:py-16 overflow-hidden border-t border-slate-200 bg-slate-50">
+        {/* Background Glows */}
+        <div className="absolute -left-40 top-20 h-72 w-72 sm:h-96 sm:w-96 rounded-full bg-emerald-500/10 blur-[100px] sm:blur-[140px] pointer-events-none" />
+        <div className="absolute -right-40 bottom-0 h-72 w-72 sm:h-96 sm:w-96 rounded-full bg-cyan-500/10 blur-[100px] sm:blur-[140px] pointer-events-none" />
+
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Main Grid */}
+          <div className="grid gap-8 sm:gap-10 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:gap-12">
+            
+            {/* Company Info */}
             <motion.div
-              initial={{
-                opacity: 0,
-                y: 30,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.5 }}
             >
               <Logo />
-              <p className="mt-5 max-w-md text-sm leading-6 text-slate-600">
+              <p className="mt-4 sm:mt-5 max-w-md text-xs sm:text-sm leading-relaxed text-slate-600">
                 OSOZ Medical Billing Services provides comprehensive medical
                 billing solutions that improve cash flow, reduce denials, and
                 maximize reimbursements while allowing healthcare providers to
@@ -80,32 +66,22 @@ export default function Footer() {
 
             {/* Quick Links */}
             <motion.div
-              initial={{
-                opacity: 0,
-                y: 30,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{ once: true }}
-              transition={{
-                delay: 0.1,
-              }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <h3 className="mb-8 text-xl font-bold text-slate-800">
+              <h3 className="mb-4 sm:mb-6 text-base sm:text-lg font-bold text-slate-800">
                 Quick Links
               </h3>
-
-              <ul className="space-y-2">
+              <ul className="space-y-2 sm:space-y-2.5">
                 {quickLinks.map((link) => (
                   <li key={link.title}>
                     <Link
                       href={link.href}
-                      className="group flex items-center gap-3 text-slate-600 transition-all hover:text-emerald-600"
+                      className="group flex items-center gap-2.5 text-xs sm:text-sm text-slate-600 transition-all hover:text-emerald-600"
                     >
-                      <span className="h-2 w-2 rounded-full bg-emerald-500 transition-all group-hover:w-4" />
-
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 transition-all group-hover:w-3.5" />
                       {link.title}
                     </Link>
                   </li>
@@ -115,31 +91,21 @@ export default function Footer() {
 
             {/* Services */}
             <motion.div
-              initial={{
-                opacity: 0,
-                y: 30,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{ once: true }}
-              transition={{
-                delay: 0.2,
-              }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h3 className="mb-8 text-xl font-bold text-slate-800">
+              <h3 className="mb-4 sm:mb-6 text-base sm:text-lg font-bold text-slate-800">
                 Our Services
               </h3>
-
-              <ul className="space-y-2">
+              <ul className="space-y-2 sm:space-y-2.5">
                 {services.map((service) => (
                   <li
                     key={service}
-                    className="group flex cursor-pointer items-center gap-3 text-slate-600 transition-all hover:text-cyan-500"
+                    className="group flex cursor-pointer items-center gap-2.5 text-xs sm:text-sm text-slate-600 transition-all hover:text-cyan-600"
                   >
-                    <span className="h-2 w-2 rounded-full bg-cyan-500 transition-all group-hover:w-4" />
-
+                    <span className="h-1.5 w-1.5 rounded-full bg-cyan-500 transition-all group-hover:w-3.5" />
                     {service}
                   </li>
                 ))}
@@ -148,71 +114,56 @@ export default function Footer() {
 
             {/* Contact */}
             <motion.div
-              initial={{
-                opacity: 0,
-                y: 30,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{ once: true }}
-              transition={{
-                delay: 0.3,
-              }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <h3 className="mb-8 text-xl font-bold text-slate-800">
+              <h3 className="mb-4 sm:mb-6 text-base sm:text-lg font-bold text-slate-800">
                 Contact Us
               </h3>
-
-              <div className="space-y-2">
-                <div className="rounded-xl border border-slate-200 bg-white p-2 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
-                  <p className="text-sm font-semibold uppercase tracking-wider text-emerald-600">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2.5 sm:gap-3">
+                <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
+                  <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-emerald-600">
                     Address
                   </p>
-
-                  <p className="text-sm text-slate-600">
+                  <p className="mt-0.5 text-xs sm:text-sm text-slate-600 leading-snug">
                     5900 Balcones Dr #16621
                     <br />
                     Austin, Texas 78731
                   </p>
                 </div>
 
-                <div className="rounded-xl border border-slate-200 bg-white p-2 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
-                  <p className="text-sm font-semibold uppercase tracking-wider text-emerald-600">
+                <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
+                  <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-emerald-600">
                     Phone
                   </p>
-
                   <a
                     href="tel:+17373106057"
-                    className="text-slate-600 text-sm hover:text-emerald-600"
+                    className="mt-0.5 block text-xs sm:text-sm text-slate-600 hover:text-emerald-600"
                   >
                     +1 (737) 310-6057
                   </a>
                 </div>
 
-                <div className="rounded-xl border border-slate-200 bg-white p-2 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
-                  <p className="text-sm font-semibold uppercase tracking-wider text-emerald-600">
+                <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
+                  <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-emerald-600">
                     Email
                   </p>
-
                   <a
                     href="mailto:info@osozmbs.com"
-                    className="text-slate-600 text-sm hover:text-emerald-600"
+                    className="mt-0.5 block text-xs sm:text-sm text-slate-600 hover:text-emerald-600 break-all"
                   >
                     info@osozmbs.com
                   </a>
                 </div>
 
-                <div className="rounded-xl border border-slate-200 bg-white p-2 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg">
-                  <p className="text-sm font-semibold uppercase tracking-wider text-emerald-600">
+                <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
+                  <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-emerald-600">
                     Office Hours
                   </p>
-
-                  <p className="text-slate-600 text-sm">
-                    Monday - Friday
-                    <br />
-                    09:00 AM - 05:00 PM
+                  <p className="mt-0.5 text-xs sm:text-sm text-slate-600 leading-snug">
+                    Mon - Fri: 09:00 AM - 05:00 PM
                   </p>
                 </div>
               </div>
@@ -220,78 +171,69 @@ export default function Footer() {
           </div>
 
           {/* Divider */}
-          <div className="mt-10 border-t border-emerald-200" />
+          <div className="mt-8 sm:mt-12 border-t border-emerald-200" />
 
-          {/* Bottom */}
-          <div className="flex flex-col gap-4 py-4 lg:flex-row lg:items-center lg:justify-between">
-            <div>
-              <p className="text-sm text-slate-500">
-                © {new Date().getFullYear()} OSOZ Medical Billing Services. All
-                Rights Reserved.
-              </p>
-            </div>
+          {/* Bottom Bar */}
+          <div className="flex flex-col gap-4 py-4 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-center sm:text-left text-xs sm:text-sm text-slate-500">
+              © {new Date().getFullYear()} OSOZ Medical Billing Services. All
+              Rights Reserved.
+            </p>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center justify-center gap-3 sm:gap-4">
               <motion.a
-                whileHover={{
-                  y: -4,
-                  scale: 1.1,
-                }}
+                whileHover={{ y: -3, scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 href="#"
-                className="flex h-10 w-10 items-center justify-center rounded-full border-2 text-blue-600 border-blue-600 bg-white shadow-sm transition hover:bg-blue-600 hover:text-white"
+                aria-label="Facebook"
+                className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-blue-600 bg-white text-blue-600 shadow-sm transition hover:bg-blue-600 hover:text-white"
               >
-                <FaFacebookF />
+                <FaFacebookF className="h-4 w-4" />
               </motion.a>
 
               <motion.a
-                whileHover={{
-                  y: -4,
-                  scale: 1.1,
-                }}
+                whileHover={{ y: -3, scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 href="#"
-                className="flex h-10 w-10 items-center justify-center rounded-full border-2 text-pink-600 border-pink-600 bg-white shadow-sm transition hover:bg-pink-600 hover:text-white"
+                aria-label="Instagram"
+                className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-pink-600 bg-white text-pink-600 shadow-sm transition hover:bg-pink-600 hover:text-white"
               >
-                <FaInstagram />
+                <FaInstagram className="h-4 w-4" />
               </motion.a>
 
               <motion.a
-                whileHover={{
-                  y: -4,
-                  scale: 1.1,
-                }}
+                whileHover={{ y: -3, scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 href="#"
-                className="flex h-10 w-10 items-center justify-center rounded-full border-2 text-blue-600 border-blue-600 bg-white shadow-sm transition hover:bg-blue-600 hover:text-white"
+                aria-label="LinkedIn"
+                className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-blue-600 bg-white text-blue-600 shadow-sm transition hover:bg-blue-600 hover:text-white"
               >
-                <FaLinkedinIn />
+                <FaLinkedinIn className="h-4 w-4" />
               </motion.a>
 
               <motion.a
-                whileHover={{
-                  y: -4,
-                  scale: 1.1,
-                }}
+                whileHover={{ y: -3, scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 href="#"
-                className="flex h-10 w-10 items-center justify-center rounded-full border-2 text-black border-black bg-white shadow-sm transition hover:bg-black hover:text-white"
+                aria-label="Threads"
+                className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-black bg-white text-black shadow-sm transition hover:bg-black hover:text-white"
               >
-                <FaThreads />
+                <FaThreads className="h-4 w-4" />
               </motion.a>
             </div>
           </div>
         </div>
       </footer>
 
+      {/* Back to Top Button */}
       <motion.button
-        whileHover={{
-          scale: 1.1,
-          y: -3,
-        }}
-        whileTap={{
-          scale: 0.9,
-        }}
+        whileHover={{ scale: 1.05, y: -2 }}
+        whileTap={{ scale: 0.95 }}
         onClick={scrollTop}
-        className="fixed bottom-4 right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-600/60 border-2 border-emerald-800 text-emerald-100 shadow-2xl"
+        aria-label="Scroll to top"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-emerald-600/90 border border-emerald-500 text-white shadow-xl backdrop-blur-md transition hover:bg-emerald-600"
       >
-        <ChevronUp size={24} />
+        <ChevronUp className="h-5 w-5 sm:h-6 sm:w-6" />
       </motion.button>
     </>
   );
