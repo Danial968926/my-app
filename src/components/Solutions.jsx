@@ -13,24 +13,28 @@ const features = [
 
 export default function Solutions() {
   return (
-    <section className="overflow-hidden bg-slate-50 py-20">
-      <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2 lg:px-8">
+    <section className="overflow-hidden bg-slate-50 py-10 sm:py-16 md:py-20">
+      <div className="mx-auto grid max-w-7xl items-center gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16 px-4 sm:px-6 lg:px-8">
+        
         {/* Left Content */}
         <motion.div
-          initial={{ opacity: 0, x: -60 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-30px" }}
+          transition={{ duration: 0.6 }}
         >
-          <span className="rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-700">
+          {/* Badge */}
+          <span className="inline-block rounded-full bg-emerald-100 px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-emerald-700">
             Why Choose OSOZMBS
           </span>
 
-          <h2 className="mt-6 text-3xl font-extrabold leading-tight text-slate-900 md:text-4xl">
+          {/* Heading */}
+          <h2 className="mt-4 text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-slate-900 tracking-tight">
             Reliable Solutions for Your Revenue Cycle Needs
           </h2>
 
-          <p className="mt-5 text-md text-slate-600">
+          {/* Description */}
+          <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base leading-relaxed text-slate-600">
             OSOZMBS is your trusted partner for managing the entire revenue
             cycle. We provide comprehensive medical billing, coding, and denial
             management services that improve operational efficiency, accelerate
@@ -38,12 +42,12 @@ export default function Solutions() {
             delivering exceptional patient care.
           </p>
 
-          <div className="mt-5 space-y-2">
+          {/* Features List */}
+          <div className="mt-5 sm:mt-6 space-y-2.5 sm:space-y-3.5">
             {features.map((feature) => (
-              <div key={feature} className="flex items-start gap-3">
-                <CircleCheck className="mt-1 h-6 w-6 text-emerald-500" />
-
-                <p className="text-slate-700">
+              <div key={feature} className="flex items-start gap-2.5 sm:gap-3">
+                <CircleCheck className="mt-0.5 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0 text-emerald-500" />
+                <p className="text-xs sm:text-sm md:text-base font-medium text-slate-700 leading-snug">
                   {feature}
                 </p>
               </div>
@@ -53,26 +57,29 @@ export default function Solutions() {
 
         {/* Right Image */}
         <motion.div
-          initial={{ opacity: 0, x: 60 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="relative"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-30px" }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="relative mt-2 lg:mt-0"
         >
-          <div className="absolute -left-6 -top-6 h-40 w-40 rounded-full bg-emerald-500/10 blur-3xl" />
-          <div className="absolute -bottom-6 -right-6 h-40 w-40 rounded-full bg-cyan-500/10 blur-3xl" />
+          {/* Background Glows */}
+          <div className="absolute -left-4 -top-4 sm:-left-6 sm:-top-6 h-32 w-32 sm:h-40 sm:w-40 rounded-full bg-emerald-500/10 blur-2xl sm:blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 h-32 w-32 sm:h-40 sm:w-40 rounded-full bg-cyan-500/10 blur-2xl sm:blur-3xl pointer-events-none" />
 
-          <div className="relative overflow-hidden rounded-xl shadow-2xl">
+          {/* Image Wrapper */}
+          <div className="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl">
             <Image
               src="/images/img1.jpg"
               alt="Reliable Medical Billing Solutions"
               width={700}
               height={500}
-              className="h-full w-full object-cover transition duration-500 hover:scale-105"
+              className="h-auto w-full object-cover transition duration-500 hover:scale-105"
               priority
             />
           </div>
         </motion.div>
+
       </div>
     </section>
   );

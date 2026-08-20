@@ -65,55 +65,55 @@ const specializations = [
 
 export default function Specialization() {
   return (
-    <section className="bg-white py-10">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="bg-white py-10 sm:py-16 md:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="mx-auto max-w-3xl text-center">
-          <span className="rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-700">
+          <span className="inline-block rounded-full bg-emerald-100 px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-emerald-700">
             Industries We Serve
           </span>
 
-          <h2 className="mt-5 text-3xl font-extrabold text-slate-900 md:text-4xl">
+          <h2 className="mt-4 text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight tracking-tight">
             Specialized Medical Billing Solutions
           </h2>
 
-          <p className="mt-5 text-md text-slate-600">
+          <p className="mt-3 text-xs sm:text-sm md:text-base leading-relaxed text-slate-600">
             We provide tailored medical billing solutions for hospitals,
             healthcare groups, laboratories, nursing homes, emergency care,
             family medicine, and many other healthcare specialties.
           </p>
         </div>
 
-        {/* Cards */}
-        <div className="mt-10 grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
+        {/* Cards Grid */}
+        <div className="mt-8 sm:mt-12 md:mt-16 grid grid-cols-1 gap-5 sm:gap-6 lg:gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {specializations.map((item, index) => {
             const Icon = item.icon;
 
             return (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-30px" }}
                 transition={{
-                  delay: index * 0.08,
-                  duration: 0.5,
+                  delay: index * 0.05,
+                  duration: 0.4,
                 }}
                 whileHover={{
-                  y: -10,
-                  scale: 1.03,
+                  y: -6,
+                  scale: 1.02,
                 }}
-                className="group rounded-xl border border-slate-200 bg-white p-8 shadow-lg transition-all duration-300 hover:border-emerald-500 hover:shadow-2xl"
+                className="group cursor-pointer rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 lg:p-8 shadow-sm hover:border-emerald-500 hover:shadow-xl transition-all duration-300"
               >
-                <div className="mb-5 inline-flex rounded-full bg-emerald-100 p-4 text-emerald-600 transition group-hover:bg-emerald-500 group-hover:text-white">
-                  <Icon size={25} />
+                <div className="mb-4 inline-flex rounded-2xl bg-emerald-50 p-3 sm:p-3.5 text-emerald-600 transition-colors duration-300 group-hover:bg-emerald-500 group-hover:text-white">
+                  <Icon className="h-6 w-6 sm:h-7 sm:w-7" />
                 </div>
 
-                <h3 className="mb-4 text-xl font-bold text-slate-900">
+                <h3 className="mb-2 text-lg sm:text-xl font-bold text-slate-900">
                   {item.title}
                 </h3>
 
-                <p className="text-sm text-slate-600">
+                <p className="text-xs sm:text-sm leading-relaxed text-slate-600">
                   {item.description}
                 </p>
               </motion.div>
